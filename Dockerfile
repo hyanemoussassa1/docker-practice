@@ -1,2 +1,2 @@
 FROM nginx
-COPY site1/dist /usr/share/nginx/html/site1
+COPY site2/html /usr/share/nginx/html/
