@@ -1,0 +1,15 @@
+FROM node:6.10
+
+RUN apt-get update
+
+ADD site1/package.json /tmp/site1/package.json
+
+RUN cd /tmp/site1 && npm install && npm install gulp -g
+
+ADD build.sh /tmp/build.sh
+
+RUN chmod +x /tmp/build.sh
+
+VOLUME ["./site1", "/var/site1"]
+
+ENTRYPOINT ["/tmp/build.sh"]
